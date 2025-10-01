@@ -1,54 +1,66 @@
-"use server";
+'use server';
 
-import { z } from "zod";
-
-const contactSchema = z.object({
-  name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
-  email: z.string().email({ message: "Por favor, introduce un email válido." }),
-  message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres." }),
-});
+import { sendEmailSMTP } from './email-smtp';
 
 export type State = {
-  errors?: {
-    name?: string[];
-    email?: string[];
-    message?: string[];
-  };
-  message?: string | null;
   success?: boolean;
+  message: string;
 };
 
-// NOTE: This is a placeholder. In a real application, you would:
-// 1. Set up your Firebase project and add credentials to environment variables.
-// 2. Use the Firebase Admin SDK to initialize Firestore.
-// 3. Implement the logic to save the form data to a 'contacts' collection.
-// 4. Add robust error handling for the database operation.
 export async function submitContactForm(prevState: State | undefined, formData: FormData): Promise<State> {
-  const validatedFields = contactSchema.safeParse({
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-  });
+  console.log('🔄 DEBUG - Procesando formulario directamente...');
+  
+  try {
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
 
-  if (!validatedFields.success) {
-    return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: "Faltan campos o hay errores. No se pudo enviar el mensaje.",
-      success: false,
+    console.log('📨 Datos del formulario:', { name, email });
+
+    // Validaciones
+    if (!name?.trim() || !email?.trim() || !message?.trim()) {
+      return { 
+        success: false, 
+        message: 'Todos los campos son obligatorios.' 
+      };
+    }
+
+    if (name.trim().length < 2) {
+      return { 
+        success: false, 
+        message: 'El nombre debe tener al menos 2 caracteres.' 
+      };
+    }
+
+    if (message.trim().length < 10) {
+      return { 
+        success: false, 
+        message: 'El mensaje debe tener al menos 10 caracteres.' 
+      };
+    }
+
+    console.log('📤 Enviando email directamente con Resend...');
+    
+    // Enviar email DIRECTAMENTE sin API route
+    await sendEmailSMTP({
+      name: name.trim(),
+      email: email.trim(),
+      message: message.trim()
+    });
+
+    console.log('✅ Email enviado exitosamente');
+    
+    return { 
+      success: true, 
+      message: '✅ ¡Mensaje enviado correctamente! Te responderé pronto.' 
+    };
+
+  } catch (error: any) {
+    console.error('💥 Error enviando email:', error);
+    
+    return { 
+      success: false, 
+      message: 'Error al enviar el mensaje. Por favor, inténtalo de nuevo.' 
     };
   }
-
-  // Placeholder for Firebase logic
-  console.log("Form data is valid and would be sent to Firebase:", validatedFields.data);
-
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  // Here, you would interact with Firestore.
-  // For example: await db.collection('contacts').add(validatedFields.data);
-
-  return {
-    message: "¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.",
-    success: true,
-  };
 }
