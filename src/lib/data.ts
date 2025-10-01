@@ -32,9 +32,9 @@ export const siteConfig = {
   url: "https://example.com", // Replace with your domain
   ogImage: "https://example.com/og.jpg", // Replace with your OG image URL
   links: {
-    twitter: "https://twitter.com/example",
-    github: "https://github.com/example",
-    linkedin: "https://linkedin.com/in/example",
+    // twitter: "https://twitter.com/example",
+    github: "https://github.com/Dekoness",
+    linkedin: "https://www.linkedin.com/in/federico-zoppi-tech",
   },
   author: "Federico Zoppi",
   email: "federicozoppi.ita@gmail.com",
@@ -51,7 +51,7 @@ export const navLinks = [
 export const socialLinks = [
   { name: 'GitHub', url: siteConfig.links.github, icon: Github },
   { name: 'LinkedIn', url: siteConfig.links.linkedin, icon: Linkedin },
-  { name: 'Twitter', url: siteConfig.links.twitter, icon: Twitter },
+  // { name: 'Twitter', url: siteConfig.links.twitter, icon: Twitter },
 ];
 
 export const heroData = {

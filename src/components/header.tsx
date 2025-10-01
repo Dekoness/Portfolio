@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Mountain } from "lucide-react";
+import { Menu, Mountain, Brain, Zap, Code, Cpu, Terminal } from "lucide-react";
 import { navLinks, siteConfig } from "@/lib/data";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Mountain className="h-6 w-6 text-primary" />
+        <Terminal className="w-8 h-8 text-blue-600" />
           <span className="hidden font-bold sm:inline-block">
             {siteConfig.author}
           </span>
@@ -47,7 +47,7 @@ export function Header() {
             <SheetContent side="right">
               <div className="flex flex-col gap-6 p-6">
                 <Link href="/" className="flex items-center gap-2">
-                   <Mountain className="h-6 w-6 text-primary" />
+                   <Brain className="h-6 w-6 text-primary" />
                    <span className="font-bold">{siteConfig.author}</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
