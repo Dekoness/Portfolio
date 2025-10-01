@@ -1,5 +1,18 @@
-import { Github, Linkedin, Twitter, Code, Database, Server, Wind, Paintbrush, Bot, Component } from 'lucide-react';
-import { PlaceHolderImages } from './placeholder-images';
+import {
+  Code,
+  Github,
+  Linkedin,
+  Twitter,
+  Server,
+  Briefcase,
+  GraduationCap,
+  Mail,
+  User,
+  Cuboid,
+  BrainCircuit,
+  Users,
+  type LucideIcon,
+} from "lucide-react";import { PlaceHolderImages } from './placeholder-images';
 
 const findImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
@@ -14,8 +27,8 @@ const findImage = (id: string) => {
 };
 
 export const siteConfig = {
-  name: "Juan Pérez | Desarrollador Full-Stack",
-  description: "Portafolio profesional de Juan Pérez, un desarrollador de software apasionado por crear soluciones web modernas y eficientes.",
+  name: "Federico Zoppi | Desarrollador Full-Stack",
+  description: "Portafolio profesional de Federico Zoppi, un desarrollador de software apasionado por crear soluciones web modernas y eficientes.",
   url: "https://example.com", // Replace with your domain
   ogImage: "https://example.com/og.jpg", // Replace with your OG image URL
   links: {
@@ -23,8 +36,8 @@ export const siteConfig = {
     github: "https://github.com/example",
     linkedin: "https://linkedin.com/in/example",
   },
-  author: "Juan Pérez",
-  email: "juan.perez@example.com",
+  author: "Federico Zoppi",
+  email: "federicozoppi.ita@gmail.com",
 };
 
 export const navLinks = [
@@ -42,16 +55,16 @@ export const socialLinks = [
 ];
 
 export const heroData = {
-  name: "Juan Pérez",
+  name: "Federico Zoppi",
   title: "Desarrollador Full-Stack",
   avatar: findImage("hero-avatar"),
-  bio: "Apasionado por la tecnología y la creación de soluciones web robustas y escalables. Con experiencia en todo el stack de desarrollo, desde el frontend hasta el backend y la infraestructura.",
-  cvUrl: "/cv-juan-perez.pdf", // Place your CV in the `public` folder
+  bio: "Mi superpoder: aprender en tiempo récord lo que tu equipo necesita. En 3 meses dominé React, Node.js, Python, FastAPI, y mas tecnologias y herramienta para el desarrollo. Dime qué necesitas que aprenda ahora.",
+  cvUrl: "https://drive.google.com/file/d/1taRqsbK_LAkIat7m_aiSNu06YpRrVN0D/view?usp=drive_link", // Place your CV in the `public` folder
 };
 
 export const aboutData = {
   title: "Sobre mí",
-  description: "Soy un desarrollador de software con una sólida formación en ingeniería y un amor por el aprendizaje continuo. Mi objetivo es construir aplicaciones que no solo funcionen a la perfección, sino que también ofrezcan una experiencia de usuario excepcional. Me desenvuelvo cómodamente tanto en equipos como de forma autónoma, siempre buscando la mejor solución para cada desafío."
+  description: "Programador con la determinación de quien elige reinventarse. Domino React, Python y las tecnologías modernas, pero mi verdadero diferencial es mi ética de trabajo: sé lo que cuesta crecer y no doy nada por sentado."
 };
 
 export const skillsData = {
@@ -61,67 +74,83 @@ export const skillsData = {
       name: "Frontend",
       icon: Code,
       skills: [
-        { name: "React", icon: "react" },
-        { name: "Next.js", icon: "nextjs" },
+        { name: "React.js", icon: "react" },
+        { name: "JavaScript ES6+", icon: "javascript" },
         { name: "TypeScript", icon: "typescript" },
+        { name: "Next.js", icon: "nextjs" },
         { name: "Tailwind CSS", icon: "tailwind" },
-      ]
+        { name: "SASS/SCSS", icon: "sass" },
+        { name: "HTML5", icon: "html5" },
+        { name: "CSS3", icon: "css3" },
+      ],
     },
     {
       name: "Backend",
       icon: Server,
       skills: [
+        { name: "Python", icon: "python" },
+        { name: "Flask", icon: "flask" },
         { name: "Node.js", icon: "nodejs" },
-        { name: "Express", icon: "express" },
-        { name: "NestJS", icon: "nestjs" },
-      ]
+        { name: "RESTful APIs", icon: "api" },
+        { name: "SQLAlchemy", icon: "sqlalchemy" },
+        { name: "JWT", icon: "jwt" },
+        { name: "PostgreSQL", icon: "postgresql" },
+      ],
     },
     {
-      name: "Bases de Datos & Cloud",
-      icon: Database,
+      name: "Plataformas y Herramientas",
+      icon: Cuboid,
       skills: [
         { name: "Firebase", icon: "firebase" },
-        { name: "PostgreSQL", icon: "postgresql" },
-        { name: "MongoDB", icon: "mongodb" },
+        { name: "Git/GitHub", icon: "github" },
         { name: "Docker", icon: "docker" },
-      ]
-    }
-  ]
+        { name: "Netlify", icon: "netlify" },
+        { name: "Vercel", icon: "vercel" },
+      ],
+    },
+    {
+      name: "Inteligencia Artificial",
+      icon: BrainCircuit,
+      skills: [
+        { name: "OpenAI API", icon: "openai" },
+        { name: "DeepSeek", icon: "deepseek" },
+        { name: "NotebookLM", icon: "notebooklm" },
+        { name: "Prompt Engineering", icon: "prompt" },
+        { name: "AI Integration", icon: "integration" },
+      ],
+    },
+    {
+      name: "Metodologías",
+      icon: Users,
+      skills: [{ name: "Agile/Scrum", icon: "agile" }],
+    },
+  ],
 };
 
 export const projectsData = {
   title: "Proyectos Destacados",
   projects: [
     {
-      title: "Plataforma de E-commerce",
-      description: "Una solución completa de comercio electrónico con pasarela de pagos, gestión de inventario y panel de administración. Construida con Next.js, TypeScript y Firebase.",
-      image: findImage("project-1"),
-      tags: ["Next.js", "Firebase", "Stripe"],
-      links: {
-        live: "#",
-        github: "#",
-      }
-    },
-    {
-      title: "Dashboard de Analíticas",
-      description: "Un panel de control interactivo para visualizar métricas de negocio en tiempo real. Utiliza React para el frontend y una API RESTful con Node.js para el backend.",
+      title: "FlaZic - Streaming Musical",
+      description: "Aplicación web de streaming musical en desarrollo. Permite explorar, buscar y reproducir música con sistema de playlists y recomendaciones. Desarrollado en colaboración con Fernando Rodriguez Gómez.",
       image: findImage("project-2"),
-      tags: ["React", "Node.js", "Recharts"],
+      tags: ["React", "TypeScript", "Tailwind CSS", "Zustand", "Vite", "En desarrollo"],
       links: {
         live: "#",
-        github: "#",
+        github: "https://github.com/Dekoness/FlaZic",
       }
     },
     {
-      title: "Aplicación de Tareas",
-      description: "Una aplicación móvil multiplataforma para la gestión de tareas personales, con sincronización en la nube y notificaciones push. Desarrollada con React Native.",
-      image: findImage("project-3"),
-      tags: ["React Native", "Firebase Auth"],
+      title: "Mi rincón escondido",
+      description: "Plataforma completa de reservas de cabañas en España con sistema de búsqueda, gestión de reservas y panel de administración. Desarrollada con React, TypeScript y Node.js.",
+      image: findImage("project-1"),
+      tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Python", "JWT"],
       links: {
-        live: "#",
-        github: "#",
+        live: "#", // Puedes agregar el demo si está desplegado
+        github: "https://github.com/Dekoness/sp108-final-project-g1",
       }
     }
+
   ]
 };
 
@@ -129,16 +158,16 @@ export const experienceData = {
   title: "Experiencia Laboral",
   entries: [
     {
-      role: "Desarrollador Full-Stack Senior",
-      company: "Tech Solutions Inc.",
-      date: "Ene 2021 - Presente",
-      description: "Lideré el desarrollo de múltiples proyectos web, desde la concepción hasta el despliegue. Mejoré el rendimiento de la aplicación principal en un 30% y mentoré a desarrolladores junior."
+      role: "Técnico Instalador Electricista",
+      company: "Rugar",
+      date: "2022 - 2025",
+      description: "Especializado en instalaciones eléctricas cumpliendo normativas REBT. Responsable de interpretación de planos, instalación de sistemas eléctricos, montaje de componentes, pruebas y mediciones, diagnóstico y mantenimiento preventivo."
     },
     {
-      role: "Desarrollador Frontend",
-      company: "Innovate Web Co.",
-      date: "Jun 2018 - Dic 2020",
-      description: "Desarrollé y mantuve interfaces de usuario para clientes de alto perfil utilizando React y Redux. Colaboré estrechamente con diseñadores UI/UX para implementar diseños pixel-perfect."
+      role: "Delivery (Trabajo Extra)",
+      company: "Doraya Japan",
+      date: "2020 - Presente",
+      description: "Servicio de reparto de comida para restaurante de cocina japonesa. Desempeño de funciones logísticas y de atención al cliente, gestionando entregas eficientes en la zona de Valencia."
     }
   ]
 };
@@ -147,14 +176,14 @@ export const educationData = {
   title: "Formación Académica",
   entries: [
     {
-      degree: "Máster en Ingeniería de Software",
-      institution: "Universidad Politécnica de Madrid",
-      date: "2016 - 2018"
+      degree: "Full-Stack Developer",
+      institution: "4Geeks Academy",
+      date: "2025"
     },
     {
-      degree: "Grado en Ingeniería Informática",
-      institution: "Universidad Complutense de Madrid",
-      date: "2012 - 2016"
+      degree: "FP Grado Superior en Sistemas Eléctricos y Automatización Industrial",
+      institution: "IES Patacona",
+      date: "2021 - 2023"
     }
   ]
 };

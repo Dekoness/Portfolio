@@ -13,7 +13,7 @@ export function Hero() {
             <div className="relative">
               <Image
                 src={heroData.avatar.imageUrl}
-                alt="Avatar de Juan Pérez"
+                alt="Avatar de Federico Zoppi"
                 width={150}
                 height={150}
                 className="rounded-full border-4 border-primary shadow-lg"

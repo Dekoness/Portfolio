@@ -10,21 +10,38 @@ export function Experience() {
             {experienceData.title}
           </h2>
         </div>
+        {/* Contenedor de la línea de tiempo */}
         <div className="relative mt-12 max-w-3xl mx-auto">
-          <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border"></div>
+          {/* La línea vertical. En móvil a la izquierda, en escritorio al centro. */}
+          <div className="absolute left-4 h-full w-0.5 bg-border md:left-1/2 md:-translate-x-1/2" />
+
+          {/* Mapeo de las entradas de experiencia */}
           {experienceData.entries.map((entry, index) => (
-            <div key={entry.company} className="relative mb-12">
-              <div className="absolute left-1/2 top-4 h-4 w-4 -translate-x-1/2 rounded-full bg-primary ring-4 ring-background"></div>
-              <div className={`flex items-start ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} w-full`}>
-                <div className="w-1/2 px-6">
-                  <div className={`p-6 rounded-lg border bg-card shadow-md ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
-                    <p className="text-sm text-muted-foreground">{entry.date}</p>
-                    <h3 className="text-xl font-bold text-primary">{entry.role}</h3>
-                    <p className="font-semibold">{entry.company}</p>
-                    <p className="mt-2 text-muted-foreground">{entry.description}</p>
+            <div key={entry.company} className="relative mb-8 md:mb-12">
+              {/* Contenedor de fila que alterna su dirección en escritorio */}
+              <div
+                className={`flex items-start gap-4 md:gap-8 ${
+                  index % 2 !== 0 ? "md:flex-row-reverse" : ""
+                }`}
+              >
+                {/* El punto de la línea de tiempo y el ícono */}
+                <div className="flex items-center justify-center md:absolute md:left-1/2 md:top-4 md:-translate-x-1/2">
+                  <div className="z-10 flex size-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                    <Briefcase className="size-4" />
                   </div>
                 </div>
-                <div className="w-1/2"></div>
+
+                {/* La tarjeta con los detalles de la experiencia */}
+                <div className="w-full rounded-lg border bg-card p-4 text-card-foreground shadow-sm md:w-[calc(50%-2rem)]">
+                  <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-center">
+                    {/* <h3 className="font-bold">{entry.position}</h3> */}
+                    <p className="text-sm text-muted-foreground">{entry.date}</p>
+                  </div>
+                  <p className="mb-2 text-sm font-semibold">{entry.company}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {entry.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

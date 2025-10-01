@@ -44,11 +44,11 @@ export function Projects() {
                     <Github className="mr-2 h-4 w-4" /> GitHub
                   </Link>
                 </Button>
-                <Button asChild>
+                {/* <Button asChild>
                   <Link href={project.links.live} target="_blank">
                     <ExternalLink className="mr-2 h-4 w-4" /> Demo
                   </Link>
-                </Button>
+                </Button> */}
               </CardFooter>
             </Card>
           ))}
