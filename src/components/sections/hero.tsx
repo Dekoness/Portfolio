@@ -1,8 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Download } from "lucide-react";
-import { heroData } from "@/lib/data";
+import { heroData, socialLinks } from "@/lib/data";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 
 export function Hero() {
   return (
@@ -32,7 +39,7 @@ export function Hero() {
                 {heroData.bio}
               </p>
             </div>
-            <div className="flex flex-col gap-4 min-[400px]:flex-row">
+            <div className="flex w-full flex-col items-center justify-center gap-4 sm:flex-row sm:justify-start">
               <Button asChild size="lg">
                 <Link href={heroData.cvUrl} target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-5 w-5" />
@@ -44,6 +51,25 @@ export function Hero() {
                   Contactar
                 </Link>
               </Button>
+              <div className="flex items-center gap-2">
+                <TooltipProvider>
+                  {socialLinks.map((link) => (
+                    <Tooltip key={link.name}>
+                      <TooltipTrigger asChild>
+                        <Button variant="outline" size="icon" asChild>
+                          <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                            <link.icon className="h-6 w-6" />
+                            <span className="sr-only">{link.name}</span>
+                          </Link>
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{link.name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ))}
+                </TooltipProvider>
+              </div>
             </div>
           </div>
           <div className="hidden lg:col-span-2 lg:flex items-center justify-center">
