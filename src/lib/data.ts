@@ -131,6 +131,16 @@ export const projectsData = {
   title: "Proyectos Destacados",
   projects: [
     {
+      title: "Festival de Música con SASS",
+      description: "Página web para un festival de música, enfocada en la práctica y dominio de SASS para estilos avanzados y Gulp para la automatización de tareas y optimización de imágenes.",
+      image: findImage("project-3"),
+      tags: ["HTML", "SASS", "Gulp.js", "JavaScript"],
+      links: {
+        live: "https://festival-sass-dekoness.netlify.app/",
+        github: "https://github.com/Dekoness/Festival-SASS",
+      }
+    },
+    {
       title: "FlaZic - Streaming Musical",
       description: "Aplicación web de streaming musical en desarrollo. Permite explorar, buscar y reproducir música con sistema de playlists y recomendaciones. Desarrollado en colaboración con Fernando Rodriguez Gómez.",
       image: findImage("project-2"),
@@ -150,7 +160,6 @@ export const projectsData = {
         github: "https://github.com/Dekoness/sp108-final-project-g1",
       }
     }
-
   ]
 };
 
