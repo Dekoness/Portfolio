@@ -39,11 +39,13 @@ export function Projects() {
                 </div>
               </CardContent>
               <CardFooter className="flex justify-end gap-2">
+              {project.links.github && project.links.github !== "#" &&(
                 <Button variant="outline" asChild>
                   <Link href={project.links.github} target="_blank">
                     <Github className="mr-2 h-4 w-4" /> GitHub
                   </Link>
                 </Button>
+                )}
                 {project.links.live && project.links.live !== "#" && (
                   <Button asChild>
                     <Link href={project.links.live} target="_blank">

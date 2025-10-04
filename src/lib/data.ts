@@ -137,7 +137,7 @@ export const projectsData = {
       tags: ["HTML", "SASS", "Gulp.js", "JavaScript"],
       links: {
         live: "https://festival-sass-dekoness.netlify.app/",
-        github: "https://github.com/Dekoness/Festival-SASS",
+        github: "#",
       }
     },
     {
