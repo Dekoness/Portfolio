@@ -39,7 +39,7 @@ export function Hero() {
                 {heroData.bio}
               </p>
             </div>
-            <div className="flex w-full flex-col items-center justify-center gap-4 sm:flex-row sm:justify-start">
+            <div className="flex w-full flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
               <Button asChild size="lg">
                 <Link href={heroData.cvUrl} target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-5 w-5" />
